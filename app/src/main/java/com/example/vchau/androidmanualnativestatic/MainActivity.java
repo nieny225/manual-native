@@ -72,29 +72,11 @@ public class MainActivity extends AppCompatActivity {
             public void onNativeLoad(final NativeAd nativeAd) {
                 Log.d(TAG, "onNativeLoad");
 
-//                View mView = nativeAd.createAdView(getActivity(), null);
-//                nativeAd.renderAdView(mView);
-//                nativeAd.prepare(mView);
-//
-//
-//                BaseNativeAd baseNativeAd = nativeAd.getBaseNativeAd();
-//
-//                if (baseNativeAd instanceof StaticNativeAd) {
-//                    StaticNativeAd staticNativeAd = (StaticNativeAd) baseNativeAd;
-//                    String CTA = staticNativeAd.getCallToAction();
-//                    CTAButton.setText(cTA);
-//                }
-
-
-
                 // Retrieve the pre-built ad view that AdapterHelper prepared for us.
-
                 View v = adapterHelper.getAdView(null, nativeAdView, nativeAd, new ViewBinder.Builder(0).build());
 
                 // Set the native event listeners (onImpression, and onClick).
                 nativeAd.setMoPubNativeEventListener(moPubNativeEventListener);
-
-//                v.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                 // Add the ad view to our view hierarchy, defined in the XML (activity_main.xml).
                 parentView.addView(v);
@@ -117,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         // Sample MoPub native ad unit: 11a17b188668469fb0412708c3d16813
-
         moPubNative = new MoPubNative(this, "11a17b188668469fb0412708c3d16813", moPubNativeNetworkListener);
 
         // Create a new renderer for native static ads.
@@ -125,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         moPubNative.registerAdRenderer(moPubAdRenderer);
 
-        //Specify which native assets you want to use in your ad.
+        //(Optional)Specify which native assets you want to use in your ad.
 //        EnumSet<RequestParameters.NativeAdAsset> desiredAssets = EnumSet.of(
 //                RequestParameters.NativeAdAsset.TITLE,
 //                RequestParameters.NativeAdAsset.TEXT,
